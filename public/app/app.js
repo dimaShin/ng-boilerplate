@@ -1,10 +1,6 @@
 (function (ng) {
   "use strict";
 
-  const app = ng.module('app', []);
-
-  app.config(($locationProvider) => {
-    $locationProvider.html5Mode(true);
-  });
+  const app = ng.module('app', ['ui.router']);
 
 }(window.angular));
