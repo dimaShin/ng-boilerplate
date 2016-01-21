@@ -30,7 +30,7 @@ gulp.task('js', () => {
   ]);
 
   merge(
-    gulp.src(vendors).pipe(excludeVendors),
+    gulp.src(vendors).pipe(excludedVendors),
     gulp.src([
     './public/app/app.js',
     './public/app/*.js',
