@@ -1,6 +1,6 @@
 /public/src/*.*
 /public/index.html
-/bower_components/
+/public/bower_components/
 /node_modules/
 
 
