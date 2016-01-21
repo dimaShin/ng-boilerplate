@@ -9,7 +9,9 @@
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/list');
 
-    $stateProvider.state('home', {})
+    $stateProvider.state('home', {
+      template: '<ui-view />'
+    })
     .state('list', {
       parent: 'home',
       url: '/list',
