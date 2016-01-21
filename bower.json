@@ -1,0 +1,30 @@
+{
+  "name": "ng-boilerplate",
+  "description": "Boilerplate for app with Angular 1.4.x built by gulp using babel",
+  "main": "",
+  "authors": [
+    "Iashin Dmitriy"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "boilerplate",
+    "babel",
+    "gulp"
+  ],
+  "homepage": "https://github.com/dimaShin/ng-boilerplate",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "oclazyload": "~1.0.9"
+  }
+}
