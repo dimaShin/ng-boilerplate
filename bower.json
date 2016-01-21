@@ -26,6 +26,8 @@
     "angular": "~1.4.8",
     "angular-ui-router": "ui-router#~0.2.15",
     "oclazyload": "~1.0.9",
-    "bootstrap-datepicker": "~1.5.1"
+    "bootstrap-datepicker": "~1.5.1",
+    "firebase": "~2.3.2",
+    "angularfire": "~1.1.3"
   }
 }
