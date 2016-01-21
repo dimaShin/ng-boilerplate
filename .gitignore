@@ -1,6 +1,7 @@
 /public/src/*.*
 /public/index.html
-
+/bower_components/
+/node_modules/
 
 
 # Created by .ignore support plugin (hsz.mobi)

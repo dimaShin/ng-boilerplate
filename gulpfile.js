@@ -12,6 +12,9 @@ const rename = require('gulp-rename');
 const watch = require('gulp-watch');
 const gulpIf = require('gulp-if');
 const argv = require('yargs').argv;
+const mainBowerFiles = require('main-bower-files');
+const merge = require('merge2');
+const filter = require('gulp-filter');
 
 gulp.task('init', () => {
 
@@ -20,17 +23,23 @@ gulp.task('init', () => {
 });
 
 gulp.task('js', () => {
-  gulp.src([
-    './node_modules/angular/angular.js',
+
+  const vendors = mainBowerFiles();
+  const excludedVendors = filter(['*',
+    '!angular-ui-router*.js'
+  ]);
+
+  merge(
+    gulp.src(vendors).pipe(excludeVendors),
+    gulp.src([
     './public/app/app.js',
     './public/app/*.js',
     './public/app/**/*.js'
-  ])
+    ]).pipe(babel({
+      presets: ['es2015', 'stage-0']
+    }))
+  ).pipe(gulpIf(argv.production, sourcemaps.init()))
   .pipe(concat('build.js'))
-  .pipe(gulpIf(argv.production, sourcemaps.init()))
-  .pipe(babel({
-    presets: ['es2015']
-  }))
   .pipe(ngAnnotate())
   .pipe(gulpIf(argv.production, uglify()))
   .pipe(gulpIf(argv.production, sourcemaps.write('.')))
