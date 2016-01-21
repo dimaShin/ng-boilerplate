@@ -3,27 +3,25 @@
 
   ng.module('app').config(Config);
 
+  Config.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
   function Config ($stateProvider, $locationProvider, $urlRouterProvider) {
 
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/list');
 
-    $stateProvider.state('home', {
-      url: '/',
-      template: '<ui-view />'
-    })
-    .state('view1', {
+    $stateProvider.state('home', {})
+    .state('list', {
       parent: 'home',
-      url: 'view1/',
-      templateUrl: '/app/routes/view1/view1.tpl.html',
-      controller: 'View1Ctrl',
+      url: '/list',
+      templateUrl: '/app/routes/list/list.tpl.html',
+      controller: 'ListCtrl',
       controllerAs: 'ctrl'
     })
-    .state('view1', {
+    .state('details', {
       parent: 'home',
-      url: 'view2/',
-      templateUrl: '/app/routes/view2/view2.tpl.html',
-      controller: 'View2Ctrl',
+      url: '/list/:id',
+      templateUrl: '/app/routes/details/details.tpl.html',
+      controller: 'DetailsCtrl',
       controllerAs: 'ctrl'
     });
 

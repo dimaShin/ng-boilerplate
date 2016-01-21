@@ -17,16 +17,14 @@ const merge = require('merge2');
 const filter = require('gulp-filter');
 
 gulp.task('init', () => {
-
   gulp.start(['js', 'jade'])
-
 });
 
 gulp.task('js', () => {
 
   const vendors = mainBowerFiles();
   const excludedVendors = filter(['*',
-    '!angular-ui-router*.js'
+    'path/to/exclude'
   ]);
 
   merge(
@@ -51,9 +49,7 @@ gulp.task('jade', () => {
   gulp.src('./public/index.jade');
 
   var YOUR_LOCALS = {
-    sourcePath: argv.production
-      ? '/src/build.js.gz'
-      : '/src/build.js'
+    sourcePath: '/src/build.js'
   };
 
   gulp.src('./public/index.jade')
