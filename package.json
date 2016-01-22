@@ -4,6 +4,7 @@
   "description": "Boilerplate for app with Angular 1.4.x built by gulp using babel",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower i && npm run build",
     "build": "gulp init"
   },
   "keywords": [
