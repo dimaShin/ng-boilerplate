@@ -10,6 +10,7 @@
     $urlRouterProvider.otherwise('/users');
 
     $stateProvider.state('home', {
+      abstract: true,
       template: '<ui-view />'
     })
     .state('users', {

@@ -6,16 +6,13 @@
     'oc.lazyLoad',
     'ngResource'
   ]).run(['$rootScope', ($rootScope) => {
-    $rootScope.$on('$stateChangeError', () => {
-      console.log(arguments);
-    });
-
-    $rootScope.$on('$stateChangeStart', ($ev, toState) => {
-      //console.log(toState);
+    $rootScope.$on('$stateChangeError', ($ev, toState, toStateParams, fromState, fromStateParams, $error) => {
     });
 
     $rootScope.$on('$stateChangeStart', ($ev, toState, toStateParams, fromState, fromStateParams) => {
-      //console.log($ev, toState, toStateParams, fromState, fromStateParams);
+    });
+
+    $rootScope.$on('$stateChangeStart', ($ev, toState, toStateParams, fromState, fromStateParams) => {
     });
   }]);
 
