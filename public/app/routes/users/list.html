@@ -7,7 +7,8 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="user in ctrl.users track by user.id">
+  <tr ui-sref="user-details({id: user.id})"
+      ng-repeat="user in ctrl.users track by user.id">
     <td ng-bind="user.name"></td>
     <td ng-bind="user.email"></td>
     <td ng-bind="user.company.name"></td>

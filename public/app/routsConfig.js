@@ -15,13 +15,32 @@
     .state('users', {
       parent: 'home',
       url: '/users',
-      templateUrl: '/app/routes/users/users.html',
-      controller: 'UsersCtrl',
+      templateUrl: '/app/routes/users/list.html',
+      controller: 'UsersListCtrl',
       controllerAs: 'ctrl'
+    })
+    .state('user-details', {
+      parent: 'home',
+      url: '/user/:id',
+      templateUrl: '/app/routes/users/details.html',
+      controller: 'UserDetailsCtrl',
+      controllerAs: 'ctrl',
+      resolve: {
+        user: ['API', '$stateParams', (API, $params) => {
+          const user = API.users.get({id: $params.id});
+          console.log(user);
+          return API.users.get({id: $params.id})
+        }],
+        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'ngMessages'
+          ]);
+        }]
+      }
     })
     .state('posts', {
       parent: 'home',
-      url: 'users/:user_id/posts/',
+      url: '/:userId/posts/',
       templateUrl: '/app/routes/posts/posts.html',
       controller: 'PostsCtrl',
       controllerAs: 'ctrl'

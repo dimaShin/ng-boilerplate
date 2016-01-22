@@ -5,14 +5,17 @@ const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const jade = require('gulp-jade');
 const watch = require('gulp-watch');
-const mainBowerFiles = require('main-bower-files');
-const merge = require('merge2');
 
-const gulpTask = require('./gulp-tasks/js');
+const jsTask = require('./gulp-tasks/js');
+const cssTask = require('./gulp-tasks/css');
 
 gulp.task('init', () => {
   gulp.start(['jade']);
-  gulpTask({
+  jsTask({
+    env: 'dev'
+  });
+
+  cssTask({
     env: 'dev'
   });
 });

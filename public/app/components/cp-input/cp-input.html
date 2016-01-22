@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label for="{{this.name}}" ng-bind="this.label"></label>
+
+  <ng-transclude></ng-transclude>
+
+  <error-messages errors="this.el.$error" ng-if="this.el.$dirty && this.el.$invalid" />
+</div>
