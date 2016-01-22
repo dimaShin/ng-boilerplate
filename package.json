@@ -4,8 +4,10 @@
   "description": "Boilerplate for app with Angular 1.4.x built by gulp using babel",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower i && npm run build",
-    "build": "gulp init"
+    "postinstall": "bower i",
+    "start": "npm run build && http-server -f index.html public/",
+    "build": "gulp init",
+    "build:watch": "gulp init --env dev"
   },
   "keywords": [
     "angular boilerplate",
@@ -29,6 +31,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.5",
+    "http-server-fallback": "^0.8.5",
     "if": "^2.0.0",
     "main-bower-files": "^2.11.1",
     "merge2": "^1.0.0",
