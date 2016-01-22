@@ -1,0 +1,16 @@
+<table>
+  <thead>
+  <tr>
+    <th>User Name</th>
+    <th>Email</th>
+    <th>Company Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="user in ctrl.users track by user.id">
+    <td ng-bind="user.name"></td>
+    <td ng-bind="user.email"></td>
+    <td ng-bind="user.company.name"></td>
+  </tr>
+  </tbody>
+</table>

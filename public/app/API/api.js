@@ -1,17 +1,44 @@
 ;(function (ng) {
+  "use strict";
 
-  ng.module('app').service('API', ApiService);
+  ng.module('app').factory('API', ApiService);
 
-  ApiService.$inject = ['$firebaseObject'];
-  function ApiService ($firebaseObject) {
+  ApiService.$inject = ['$resource'];
+  function ApiService ($resource) {
     "use strict";
-    this.$firebaseObject = $firebaseObject;
-    this.ref = new Firebase("resplendent-torch-7329.firebaseIO.com");
-  }
+    const root = 'http://jsonplaceholder.typicode.com';
 
-  ApiService.prototype.get = function () {
-    "use strict";
-    return this.$firebaseObject(this.ref);
+    return {
+      posts: $resource(root + '/posts/:id', {id: '@id'}, {
+        put: {
+          method: 'put'
+        },
+        getComments: {
+          method: 'get',
+          url: root + '/posts/:id/comments',
+          params: {
+            id: '@id'
+          }
+        }
+      }),
+      users: $resource(root + '/users/:id', {id: '@id'}, {
+        put: {
+          method: 'put'
+        },
+        getPosts: {
+          method: 'get',
+          url: root + '/users/:id/posts',
+          params: {
+            id: '@id'
+          }
+        }
+      }),
+      comments: $resource(root + '/comments/:id', {id: '@id'}, {
+        put: {
+          method: 'put'
+        }
+      })
+    }
   }
 
 }(window.angular));

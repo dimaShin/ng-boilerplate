@@ -7,23 +7,23 @@
   function Config ($stateProvider, $locationProvider, $urlRouterProvider) {
 
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/list');
+    $urlRouterProvider.otherwise('/users');
 
     $stateProvider.state('home', {
       template: '<ui-view />'
     })
-    .state('list', {
+    .state('users', {
       parent: 'home',
-      url: '/list',
-      templateUrl: '/app/routes/list/list.tpl.html',
-      controller: 'ListCtrl',
+      url: '/users',
+      templateUrl: '/app/routes/users/users.html',
+      controller: 'UsersCtrl',
       controllerAs: 'ctrl'
     })
-    .state('details', {
+    .state('posts', {
       parent: 'home',
-      url: '/list/:id',
-      templateUrl: '/app/routes/details/details.tpl.html',
-      controller: 'DetailsCtrl',
+      url: 'users/:user_id/posts/',
+      templateUrl: '/app/routes/posts/posts.html',
+      controller: 'PostsCtrl',
       controllerAs: 'ctrl'
     });
 

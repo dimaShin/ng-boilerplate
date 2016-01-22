@@ -1,0 +1,10 @@
+<table>
+  <tbody ng-repeat="post in ctrl.posts track by post.id">
+  <tr ng-click="post.expanded = !post.expanded">
+    <td ng-bind="post.title"></td>
+  </tr>
+  <tr ng-show="post.expanded">
+    <td ng-bind="post.body"></td>
+  </tr>
+  </tbody>
+</table>
