@@ -17,4 +17,25 @@
     this.user = user;
   };
 
+    UserDetailsCtrl.prototype.save = function ($ev) {
+        $ev.preventDefault();
+        if (this.form.$invalid) {
+            this.form.$setDirty();
+            return;
+        }
+
+        this.user.$put().$promise
+            .finally(() => {
+                debugger
+                console.log('data saved');
+            })
+            .then(() => {
+                debugger
+                console.log('data saved');
+            }).catch(err => {
+                debugger
+                console.log('err: ', err);
+            });
+    }
+
 }(window.angular));

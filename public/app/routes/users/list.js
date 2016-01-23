@@ -3,8 +3,8 @@
 
   ng.module('app').controller('UsersListCtrl', UsersListCtrl);
 
-  UsersListCtrl.$inject = ['$injector'];
-  function UsersListCtrl($injector) {
+  UsersListCtrl.$inject = ['$injector', '$scope'];
+  function UsersListCtrl($injector, $scope) {
     this._injectDependencies($injector);
     this._init();
   }

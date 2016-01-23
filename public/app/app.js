@@ -12,7 +12,7 @@
     $rootScope.$on('$stateChangeStart', ($ev, toState, toStateParams, fromState, fromStateParams) => {
     });
 
-    $rootScope.$on('$stateChangeStart', ($ev, toState, toStateParams, fromState, fromStateParams) => {
+    $rootScope.$on('$stateChangeSuccess', ($ev, toState, toStateParams, fromState, fromStateParams) => {
     });
   }]);
 

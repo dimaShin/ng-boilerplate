@@ -28,8 +28,6 @@
       controllerAs: 'ctrl',
       resolve: {
         user: ['API', '$stateParams', (API, $params) => {
-          const user = API.users.get({id: $params.id});
-          console.log(user);
           return API.users.get({id: $params.id})
         }],
         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
