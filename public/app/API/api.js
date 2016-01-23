@@ -27,6 +27,7 @@
         },
         getPosts: {
           method: 'get',
+            isArray: true,
           url: root + '/users/:id/posts',
           params: {
             id: '@id'

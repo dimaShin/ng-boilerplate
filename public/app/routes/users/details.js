@@ -11,6 +11,7 @@
 
   UserDetailsCtrl.prototype._injectDependencies = function ($injector) {
     this.API = $injector.get('API');
+      this.Noty = $injector.get('Noty');
   };
 
   UserDetailsCtrl.prototype._init = function (user) {
@@ -24,18 +25,16 @@
             return;
         }
 
-        this.user.$put().$promise
-            .finally(() => {
-                debugger
-                console.log('data saved');
+        this.user.$put().then(() => {
+            console.log('data loaded');
+            this.Noty.show({
+                title: 'Success!',
+                text: 'Data loaded.',
+                type: 'success'
             })
-            .then(() => {
-                debugger
-                console.log('data saved');
-            }).catch(err => {
-                debugger
-                console.log('err: ', err);
-            });
+        }).catch(err => {
+            console.log(err);
+        });
     }
 
 }(window.angular));

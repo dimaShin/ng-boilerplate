@@ -20,6 +20,11 @@
 
   UsersListCtrl.prototype._getUsers = function () {
     return this.API.users.query();
+  };
+
+  UsersListCtrl.prototype.showPosts = function (user) {
+      console.log(user);
+    this.$state.go('posts', {userId: user.id});
   }
 
 }(window.angular));

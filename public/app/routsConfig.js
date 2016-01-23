@@ -40,9 +40,15 @@
     .state('posts', {
       parent: 'home',
       url: '/:userId/posts/',
-      templateUrl: '/app/routes/posts/posts.html',
-      controller: 'PostsCtrl',
-      controllerAs: 'ctrl'
+      templateProvider: (posts) => {
+          console.log();
+          return '<posts list="$resolve.posts" />'
+      },
+        resolve: {
+            posts: ['API', '$stateParams', (API, $s) => {
+                return API.users.getPosts({id: $s.userId});
+            }]
+        }
     });
 
   }

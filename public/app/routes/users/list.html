@@ -8,7 +8,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ui-sref="user-details({id: user.id})"
+        <tr ng-click="ctrl.showPosts(user)"
             ng-repeat="user in ctrl.users track by user.id">
             <td ng-bind="user.name">Not rendered yet</td>
             <td ng-bind="user.email"></td>
